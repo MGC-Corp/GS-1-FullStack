@@ -1,0 +1,190 @@
+/* Reset básico e variáveis */
+:root {
+    --primary-color: #0d47a1;
+    --secondary-color: #64b5f6;
+    --accent-color: #ffca28;
+    --background-light: #ffffff;
+    --background-dark: #f0f4fd;
+    --text-color: #333333;
+    --heading-color: #0d47a1;
+    --font-base: 'Roboto', sans-serif;
+    --max-width: 1200px;
+    --transition-speed: 0.3s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-base);
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Container centralizado para conteúdo */
+.container {
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* Header e Menu */
+header {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 1.5rem 0;
+}
+
+header h1 {
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 0.25rem 0;
+    transition: color var(--transition-speed);
+}
+
+/* Indicação de hover/ativo no menu */
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: var(--accent-color);
+    left: 0;
+    bottom: -4px;
+    transition: width var(--transition-speed);
+}
+
+header nav ul li a:hover,
+header nav ul li a:focus,
+header nav ul li a.active {
+    color: var(--accent-color);
+}
+
+header nav ul li a:hover::after,
+header nav ul li a:focus::after,
+header nav ul li a.active::after {
+    width: 100%;
+}
+
+/* Seções gerais */
+.section {
+    padding: 3rem 0;
+}
+
+.section-light {
+    background-color: var(--background-light);
+}
+
+.section-dark {
+    background-color: var(--background-dark);
+}
+
+.section-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Blocos de texto e imagem dentro das seções */
+.text-block {
+    flex: 1 1 350px;
+}
+
+.text-block h2 {
+    color: var(--heading-color);
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.text-block p {
+    margin-bottom: 1rem;
+    max-width: 600px;
+}
+
+/* Imagens responsivas e redimensionadas */
+.image-block {
+    flex: 1 1 350px;
+    text-align: center;
+}
+
+.image-block img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Espaçamento interno nas seções */
+.section-light .text-block,
+.section-light .image-block {
+    padding: 1rem;
+}
+
+.section-dark .text-block,
+.section-dark .image-block {
+    padding: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+}
+
+/* Tornar o menu “sticky” (opcional) */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Ajuste de responsividade */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .section-content {
+        flex-direction: column;
+    }
+
+    .text-block,
+    .image-block {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    .text-block p {
+        margin: 0.5rem auto;
+    }
+}
