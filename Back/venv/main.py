@@ -13,7 +13,7 @@ db = client["Enchentes"]
 users = db["user"]
 
 class User(BaseModel):
-    name: str
+    email: str
     senha: str
     locais: list[str] = Field(..., max_length=3)
 
