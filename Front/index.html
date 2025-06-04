@@ -26,8 +26,12 @@
                     <li><a href="#publico" class="menu-link">Público</a></li>
                     <li><a href="#beneficios" class="menu-link">Benefícios</a></li>
                     <li><a href="#como-ajuda" class="menu-link">Como Ajuda</a></li>
+                    <li><a href="#slideshow" class="menu-link">Demonstração</a></li>
+                    <li><a href="#quiz" class="menu-link">Quiz</a></li>
+                    <li><a href="#contato" class="menu-link">Contato</a></li>
                 </ul>
             </nav>
+
         </div>
     </header>
     
@@ -122,6 +126,31 @@
             </div>
         </section>
         
+        <!-- Seção: Slideshow -->
+        <section id="slideshow" class="section section-dark">
+            <div class="container">
+                <h2>Demonstração</h2>
+                <div class="slideshow-container">
+                    <div class="slide fade">
+                        <img src="images/chuva-forte.jpg" alt="Prevenção de alagamentos">
+                    </div>
+                    <div class="slide fade">
+                        <img src="images/entregador chuva.jpg" alt="Rotas seguras">
+                    </div>
+                    <div class="slide fade">
+                        <img src="images/moto.jpg" alt="Alertas em tempo real">
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <div class="dots-container">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </section>
+        
         <!-- Seção: Como ajuda -->
         <section id="como-ajuda" class="section section-dark">
             <div class="container section-content">
@@ -139,6 +168,7 @@
                 </div>
             </div>
         </section>
+
     </main>
     
     <footer>
@@ -146,7 +176,9 @@
             <p>© 2025 Waze de Alagamento. Todos os direitos reservados.</p>
         </div>
     </footer>
-    <script src="scripts/script.js"></script>
     
+    <script src="scripts/nav.js"></script>
+    <script src="scripts/slideshow.js"></script>
+
 </body>
 </html>
