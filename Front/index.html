@@ -168,7 +168,49 @@
                 </div>
             </div>
         </section>
-
+        
+        <!-- Seção: Quiz -->
+        <section id="quiz" class="section section-light">
+            <div class="container">
+                <h2>Teste seu Conhecimento</h2>
+                <div id="quiz-container">
+                    <div id="question-container">
+                        <div id="question"></div>
+                        <div id="answer-buttons" class="btn-grid"></div>
+                    </div>
+                    <div id="controls">
+                        <button id="start-btn" class="btn">Começar</button>
+                        <button id="next-btn" class="btn">Próxima</button>
+                    </div>
+                    <div id="results"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção: Contato -->
+        <section id="contato" class="section section-dark">
+            <div class="container">
+                <h2>Fale Conosco</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nome:</label>
+                        <input type="text" id="name" name="name" required>
+                        <div class="error-message" id="name-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error-message" id="email-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <div class="error-message" id="message-error"></div>
+                    </div>
+                    <button type="submit" class="btn">Enviar</button>
+                </form>
+            </div>
+        </section>
     </main>
     
     <footer>
@@ -179,6 +221,6 @@
     
     <script src="scripts/nav.js"></script>
     <script src="scripts/slideshow.js"></script>
-
+    <script src="scripts/quiz.js"></script>
 </body>
 </html>
