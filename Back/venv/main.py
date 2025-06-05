@@ -17,6 +17,13 @@ class User(BaseModel):
     senha: str
     locais: list[str] = Field(..., max_length=3)
 
+class LoginRequest(BaseModel):
+    email: str
+    senha: str
+
+class Local(BaseModel):
+    Local: str
+
 app = FastAPI()
 
 
@@ -24,6 +31,20 @@ app = FastAPI()
 async def add_item(item: User):  
     result = await users.insert_one(item.dict())  
     return {"id": str(result.inserted_id)}
+
+
+@app.post("/login")
+async def login(request: LoginRequest):
+
+    usuario = await users.find_one({"email": request.email})
+    if not usuario:
+        # Se não encontrar, retorna 401
+        raise HTTPException(status_code=401, detail="Email ou senha incorretos")
+
+    if usuario["senha"] != request.senha:
+        raise HTTPException(status_code=401, detail="Email ou senha incorretos")
+
+    return {"id": str(usuario["_id"])}
 
 
 @app.get("/getLocais/{id}")
@@ -36,9 +57,6 @@ async def get_locais(id: str):
     locais = result["locais"]
     return locais
 
-
-class Local(BaseModel):
-    Local: str
 
 
 @app.put("/addLocal/{id}")
