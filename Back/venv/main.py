@@ -3,14 +3,23 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from typing import List
 from pydantic import BaseModel, conlist, Field
 from bson import ObjectId
+from fastapi.middleware.cors import CORSMiddleware
 
 print("funfando")
 
 MONGO_URL = 'mongodb+srv://murilo:pudim123@enchentes.gjqu7iq.mongodb.net/?retryWrites=true&w=majority&appName=Enchentes'
 client = AsyncIOMotorClient(MONGO_URL)
 db = client["Enchentes"]  
-
 users = db["user"]
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],       
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class User(BaseModel):
     email: str
@@ -24,7 +33,6 @@ class LoginRequest(BaseModel):
 class Local(BaseModel):
     Local: str
 
-app = FastAPI()
 
 
 @app.post("/postUser")
