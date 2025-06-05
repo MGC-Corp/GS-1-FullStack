@@ -1,26 +1,19 @@
 const BACKEND_BASE_URL = 'http://localhost:8000'; 
 
-// Funções utilitárias
+// Função genérica de request (apenas UMA vez)
 async function makeRequest(url, method = 'GET', body = null) {
   const options = {
     method,
-    headers: {
-      'Content-Type': 'application/json'
-    }
+    headers: { 'Content-Type': 'application/json' }
   };
-  
-  if (body) {
-    options.body = JSON.stringify(body);
-  }
-  
+  if (body) options.body = JSON.stringify(body);
+
   try {
     const response = await fetch(url, options);
-    
     if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.detail || 'Erro na requisição');
+      const erro = await response.json();
+      throw new Error(erro.detail || 'Erro na requisição');
     }
-    
     return response.json();
   } catch (error) {
     console.error('Erro na requisição:', error);
@@ -30,22 +23,20 @@ async function makeRequest(url, method = 'GET', body = null) {
 
 // Serviços de Usuário
 export const userService = {
-  async register( email, password, vehicleType = '') {
+  async register(email, password, locaisArray = []) {
     const url = `${BACKEND_BASE_URL}/postUser`;
     return makeRequest(url, 'POST', {
       email,
       senha: password,
-      vehicleType
+      locais: locaisArray
     });
   },
-  
   async login(email, password) {
-    // Implementação depende do seu backend
-    // Esta é uma implementação de exemplo
     const url = `${BACKEND_BASE_URL}/login`;
     return makeRequest(url, 'POST', { email, senha: password });
   }
 };
+
 
 // Serviços de Localização
 export const locationService = {

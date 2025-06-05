@@ -15,9 +15,13 @@
                 <i class="fas fa-water logo-icon"></i>
                 <div class="logo-text">Alerta<span>Flood</span></div>
             </div>
+
+            <!-- BOTÃO MOBILE -->
             <div class="mobile-toggle" id="mobileToggle">
                 <i class="fas fa-bars"></i>
             </div>
+
+            <!-- NAVBAR -->
             <nav id="mainNav">
                 <ul>
                     <li><a href="#problema" class="menu-link active">Problema</a></li>
@@ -28,7 +32,18 @@
                     <li><a href="#como-ajuda" class="menu-link">Como Ajuda</a></li>
                     <li><a href="#slideshow" class="menu-link">Demonstração</a></li>
                     <li><a href="#quiz" class="menu-link">Quiz</a></li>
-                    <li><a href="#contato" class="menu-link">Contato</a></li>
+
+                    <!-- Link para registro -->
+                    <li><a href="#cadastro" class="menu-link">Cadastro</a></li>
+
+                    <!-- Campo de login na navbar -->
+                    <li class="nav-login">
+                        <input type="email" id="loginEmail" placeholder="Email" class="login-input">
+                        <input type="password" id="loginSenha" placeholder="Senha" class="login-input">
+                        <button id="loginBtn" class="btn btn-login">Entrar</button>
+                        <div id="loginError" class="login-error" style="display:none; color:#e74c3c; font-size:0.9rem;"></div>
+                    </li>
+
                     <li>
                         <div class="theme-switcher">
                             <i class="fas fa-palette" id="themeIcon"></i>
@@ -196,31 +211,33 @@
             </div>
         </section>
         
-        <!-- Seção: Contato -->
-        <section id="contato" class="section section-dark">
-            <div class="container">
-                <h2>Fale Conosco</h2>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Nome:</label>
-                        <input type="text" id="name" name="name" required>
-                        <div class="error-message" id="name-error"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                        <div class="error-message" id="email-error"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensagem:</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                        <div class="error-message" id="message-error"></div>
-                    </div>
-                    <button type="submit" class="btn">Enviar</button>
-                </form>
-            </div>
-        </section>
-    </main>
+    <section id="cadastro" class="section section-dark">
+      <div class="container">
+        <h2>Cadastre-se</h2>
+        <form id="cadastroForm" class="form-cadastro">
+          <div class="form-group">
+            <label for="cadEmail">Email:</label>
+            <input type="email" id="cadEmail" name="email" required />
+            <div class="error-message" id="cadEmailError"></div>
+          </div>
+          <div class="form-group">
+            <label for="cadSenha">Senha:</label>
+            <input type="password" id="cadSenha" name="senha" required />
+            <div class="error-message" id="cadSenhaError"></div>
+          </div>
+          <div class="form-group">
+            <label for="cadLocais">Locais (até 3) [separados por vírgula]:</label>
+            <input type="text" id="cadLocais" name="locais" placeholder="ex: Rua A, Praça B" required />
+            <div class="error-message" id="cadLocaisError"></div>
+          </div>
+          <button type="submit" class="btn">Cadastrar</button>
+          <div id="cadastroSuccess" style="display:none; color:#27ae60; font-size:1rem; margin-top:0.5rem;">
+            Cadastro realizado com sucesso! Seu ID foi salvo localmente.
+          </div>
+          <div id="cadastroError" style="display:none; color:#e74c3c; font-size:1rem; margin-top:0.5rem;"></div>
+        </form>
+      </div>
+    </section>
     
     <footer>
         <div class="container">
@@ -233,6 +250,6 @@
     <script src="scripts/quiz.js"></script>
     <script src="scripts/form-validation.js"></script>
     <script src="scripts/theme.js"></script>
-    <script src="scripts/apiServices.js"></script>
+    <script type="module" src="scripts/handlers.js"></script>
 </body>
 </html>

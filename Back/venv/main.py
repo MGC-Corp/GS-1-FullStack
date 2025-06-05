@@ -3,27 +3,56 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from typing import List
 from pydantic import BaseModel, conlist, Field
 from bson import ObjectId
+from fastapi.middleware.cors import CORSMiddleware
 
 print("funfando")
 
 MONGO_URL = 'mongodb+srv://murilo:pudim123@enchentes.gjqu7iq.mongodb.net/?retryWrites=true&w=majority&appName=Enchentes'
 client = AsyncIOMotorClient(MONGO_URL)
 db = client["Enchentes"]  
-
 users = db["user"]
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],       
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class User(BaseModel):
     email: str
     senha: str
     locais: list[str] = Field(..., max_length=3)
 
-app = FastAPI()
+class LoginRequest(BaseModel):
+    email: str
+    senha: str
+
+class Local(BaseModel):
+    Local: str
+
 
 
 @app.post("/postUser")
 async def add_item(item: User):  
     result = await users.insert_one(item.dict())  
     return {"id": str(result.inserted_id)}
+
+
+@app.post("/login")
+async def login(request: LoginRequest):
+
+    usuario = await users.find_one({"email": request.email})
+    if not usuario:
+        # Se não encontrar, retorna 401
+        raise HTTPException(status_code=401, detail="Email ou senha incorretos")
+
+    if usuario["senha"] != request.senha:
+        raise HTTPException(status_code=401, detail="Email ou senha incorretos")
+
+    return {"id": str(usuario["_id"])}
 
 
 @app.get("/getLocais/{id}")
@@ -36,9 +65,6 @@ async def get_locais(id: str):
     locais = result["locais"]
     return locais
 
-
-class Local(BaseModel):
-    Local: str
 
 
 @app.put("/addLocal/{id}")
