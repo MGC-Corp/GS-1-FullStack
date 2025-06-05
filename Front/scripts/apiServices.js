@@ -1,6 +1,4 @@
-// apiServices.js
-
-const BACKEND_BASE_URL = 'http://localhost:8000'; // Altere se necessário
+const BACKEND_BASE_URL = 'http://localhost:8000'; 
 
 // Funções utilitárias
 async function makeRequest(url, method = 'GET', body = null) {
@@ -32,7 +30,7 @@ async function makeRequest(url, method = 'GET', body = null) {
 
 // Serviços de Usuário
 export const userService = {
-  async register(name, email, password, vehicleType = '') {
+  async register( email, password, vehicleType = '') {
     const url = `${BACKEND_BASE_URL}/postUser`;
     return makeRequest(url, 'POST', {
       email,
@@ -121,7 +119,7 @@ export const riskService = {
   },
   
   async getWeatherForecast(lat, lon) {
-    // Sei que nao eh uma boa pratica hardcode, mas eh para se possivel testar :)
+    // Sei que nao eh uma boa pratica hardcode, mas eh para ser possivel testar :)
     const API_KEY = '267eedca0b784f6a8d7112948243107';
     const url = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${lat},${lon}&days=7`;
     const response = await fetch(url);
