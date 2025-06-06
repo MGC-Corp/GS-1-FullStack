@@ -1,5 +1,3 @@
-Claro\! Aqui está um `README.md` completo e bem formatado, pronto para ser copiado e colado diretamente no seu repositório GitHub. Ele combina as informações que você forneceu em um formato claro e profissional.
-
 -----
 
 # GS-1 FullStack (API)
