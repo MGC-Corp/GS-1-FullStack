@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlertaFlood - Previsão do Tempo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/prev.css">
+
+</head>
+<body>
+    <header>
+        <a href="index.html" class="menu-link">
+        <div class="container header-container">
+            <div class="logo">
+                <i  class="fas fa-water logo-icon"></i>
+                <div class="logo-text">Alerta<span>Flood</span></div>
+            </div>
+        </div>
+        </a>
+    </header>
+    
+    <main>
+        <!-- Seção: Previsão do Tempo -->
+        <section id="previsao" class="section">
+            <div class="container">
+                <div class="previsao-container">
+                    <div class="previsao-header">
+                        <h2>Previsão do Tempo e Risco de Alagamento</h2>
+                        <p>Digite o nome de uma cidade ou local para ver a previsão do tempo para os próximos dias e o risco de alagamento</p>
+                    </div>
+                    
+                    <div class="search-container">
+                        <input type="text" id="localInput" placeholder="Digite o nome da cidade...">
+                        <button id="searchBtn">
+                            <i class="fas fa-search"></i> Buscar
+                        </button>
+                    </div>
+                    <!-- Seção de locais salvos (nova) -->
+                    <div class="saved-locations-container" id="savedLocationsContainer">
+                        <h4>Meus Locais Salvos</h4>
+                        <div class="saved-locations-grid" id="savedLocationsGrid">
+                            <!-- Locais salvos serão inseridos aqui -->
+                        </div>
+                    </div>
+                    
+                    <div class="loading" id="loading">
+                        <i class="fas fa-spinner"></i>
+                        <p>Buscando informações meteorológicas...</p>
+                    </div>
+                    
+                    <div class="error-message" id="errorMessage">
+                        Ocorreu um erro ao buscar os dados. Por favor, tente novamente.
+                    </div>
+                    
+                    <div class="result-container" id="resultContainer">
+                        <div class="location-info">
+                            <h3 id="locationName">São Paulo, SP</h3>
+                            <div class="save-location-container">
+                                <button id="saveLocationBtn">
+                                    <i class="fas fa-bookmark"></i> Salvar Local
+                                </button>
+                            </div>
+                            <div class="saved-message" id="savedMessage">
+                                <i class="fas fa-check-circle"></i> Local salvo com sucesso!
+                            </div>
+                            <div class="location-details">
+                                <div><i class="fas fa-map-marker-alt"></i> <span id="locationCoords">-23.5505, -46.6333</span></div>
+                                <div><i class="fas fa-mountain"></i> Altitude: <span id="locationAltitude">760</span>m</div>
+                            </div>
+                        </div>
+                        
+                        <div class="current-weather">
+                            <div class="weather-icon">
+                                <i class="fas fa-sun" id="currentIcon"></i>
+                            </div>
+                            <div class="temp-display">
+                                <div class="temp" id="currentTemp">24°C</div>
+                                <div class="feels-like">Sensação: <span id="currentFeelsLike">25°C</span></div>
+                            </div>
+                            <div class="weather-details">
+                                <div class="weather-detail">
+                                    <i class="fas fa-tint"></i>
+                                    <span>Humidade: <span id="currentHumidity">65</span>%</span>
+                                </div>
+                                <div class="weather-detail">
+                                    <i class="fas fa-wind"></i>
+                                    <span>Vento: <span id="currentWind">12</span> km/h</span>
+                                </div>
+                                <div class="weather-detail">
+                                    <i class="fas fa-cloud-rain"></i>
+                                    <span>Precipitação: <span id="currentPrecip">0</span>mm</span>
+                                </div>
+                                <div class="weather-detail">
+                                    <i class="fas fa-compress-alt"></i>
+                                    <span>Pressão: <span id="currentPressure">1015</span> hPa</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="forecast-container">
+                            <h3>Previsão dos Ultimos Dias</h3>
+                            <div class="forecast-grid" id="forecastGrid">
+                                <!-- Previsões serão inseridas aqui via JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="risk-explanation">
+                            <h4>Como interpretar o risco de alagamento?</h4>
+                            <p>O risco de alagamento é calculado com base na altitude do local e na previsão de precipitação (chuva):</p>
+                            <ul>
+                                <li><strong class="risk-high">ALTO</strong>: Áreas baixas (menos de 20m de altitude) com chuva acima de 5mm</li>
+                                <li><strong class="risk-medium">MÉDIO</strong>: Áreas baixas com chuva moderada ou áreas elevadas com muita chuva</li>
+                                <li><strong class="risk-low">BAIXO</strong>: Áreas elevadas ou com pouca precipitação</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Importações de scripts -->
+    <script type="module" src="scripts/apiServices.js"></script>
+    <script type="module" src="scripts/handlers.js"></script>
+    <script type="module" src="scripts/weather.js"></script>
+</body>
+</html>

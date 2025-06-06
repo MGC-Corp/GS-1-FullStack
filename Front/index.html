@@ -6,7 +6,7 @@
     <title>Waze de Alagamento - Prevenção Inteligente</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <header>
@@ -18,7 +18,9 @@
 
             <!-- BOTÃO MOBILE -->
             <div class="mobile-toggle" id="mobileToggle">
-                <i class="fas fa-bars"></i>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
 
             <!-- NAVBAR -->
@@ -29,20 +31,16 @@
                     <li><a href="#objetivos" class="menu-link">Objetivos</a></li>
                     <li><a href="#publico" class="menu-link">Público</a></li>
                     <li><a href="#beneficios" class="menu-link">Benefícios</a></li>
-                    <li><a href="#como-ajuda" class="menu-link">Como Ajuda</a></li>
                     <li><a href="#slideshow" class="menu-link">Demonstração</a></li>
+                    <li><a href="#como-ajuda" class="menu-link">Ajuda?</a></li>
                     <li><a href="#quiz" class="menu-link">Quiz</a></li>
-
+                    
                     <!-- Link para registro -->
                     <li><a href="#cadastro" class="menu-link">Cadastro</a></li>
-
+                    
+                    <li><a href="previsoes.html" class="menu-link">Previsões</a></li>
                     <!-- Campo de login na navbar -->
-                    <li class="nav-login">
-                        <input type="email" id="loginEmail" placeholder="Email" class="login-input">
-                        <input type="password" id="loginSenha" placeholder="Senha" class="login-input">
-                        <button id="loginBtn" class="btn btn-login">Entrar</button>
-                        <div id="loginError" class="login-error" style="display:none; color:#e74c3c; font-size:0.9rem;"></div>
-                    </li>
+                    <li><a href="#" id="openLoginModalBtn" class="btn btn-login">Login</a></li>
 
                     <li>
                         <div class="theme-switcher">
@@ -73,7 +71,7 @@
                     <a href="#tecnologias" class="btn">Conheça a Solução</a>
                 </div>
                 <div class="image-block animate">
-                    <img src="https://images.unsplash.com/photo-1593115057322-e57333d8e93c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Ruas alagadas após chuva forte">
+                    <img src="images/gs-foto-sd.jpg" alt="Ruas alagadas após chuva forte">
                 </div>
             </div>
         </section>
@@ -104,7 +102,7 @@
                         <i class="fas fa-bullseye"></i>
                     </div>
                     <h2>Objetivos</h2>
-                    <p>Prever alagamentos e oferecer rotas seguras aos usuários.</p>
+                    <p>Prever alagamentos e oferecer segurança.</p>
                     <p>Proteger vidas e reduzir impactos econômicos das enchentes.</p>
                     <a href="#publico" class="btn">Público-Alvo</a>
                 </div>
@@ -187,7 +185,7 @@
                     </div>
                     <h2>Como Ajuda</h2>
                     <p>Interface intuitiva com previsão e alertas para locais específicos.</p>
-                    <p>Consulta simples para endereços e exibição de gráficos semanais.</p>
+                    <p>Consulta simples para endereços.</p>
                     <a href="#problema" class="btn">Voltar ao Topo</a>
                 </div>
             </div>
@@ -232,10 +230,33 @@
           </div>
           <button type="submit" class="btn">Cadastrar</button>
           <div id="cadastroSuccess" style="display:none; color:#27ae60; font-size:1rem; margin-top:0.5rem;">
-            Cadastro realizado com sucesso! Seu ID foi salvo localmente.
+            Cadastro realizado com sucesso! 
           </div>
           <div id="cadastroError" style="display:none; color:#e74c3c; font-size:1rem; margin-top:0.5rem;"></div>
         </form>
+      </div>
+      <div id="loginModalOverlay" class="modal-overlay">
+          <div class="modal-content">
+              <span id="closeLoginModalBtn" class="close-btn">&times;</span>
+              <h2>Login</h2>
+              <form id="loginFormModal" class="form-cadastro">
+                  <div class="form-group">
+                      <label for="loginEmailModal">Email:</label>
+                      <input type="email" id="loginEmailModal" name="email" required />
+                      <div class="error-message" id="loginEmailModalError"></div>
+                  </div>
+                  <div class="form-group">
+                      <label for="loginSenhaModal">Senha:</label>
+                      <input type="password" id="loginSenhaModal" name="senha" required />
+                      <div class="error-message" id="loginSenhaModalError"></div>
+                  </div>
+                  <button type="submit" class="btn">Entrar</button>
+                  <div id="loginModalSuccess" style="display:none; color:#27ae60; font-size:1rem; margin-top:0.5rem;">
+                      Login realizado com sucesso!
+                  </div>
+                  <div id="loginModalError" style="display:none; color:#e74c3c; font-size:1rem; margin-top:0.5rem;"></div>
+              </form>
+          </div>
       </div>
     </section>
     
@@ -245,11 +266,10 @@
         </div>
     </footer>
     
-    <script src="scripts/nav.js"></script>
     <script src="scripts/slideshow.js"></script>
     <script src="scripts/quiz.js"></script>
-    <script src="scripts/form-validation.js"></script>
     <script src="scripts/theme.js"></script>
+    <script src="scripts/nav.js"></script>
     <script type="module" src="scripts/handlers.js"></script>
 </body>
 </html>
