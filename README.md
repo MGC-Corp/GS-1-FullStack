@@ -13,8 +13,8 @@ Este projeto foi estruturado para atender a diferentes disciplinas. Siga a instr
   * **Para a disciplina de Front-End:**
     Todos os requisitos são atendidos com a **página estática**. Basta abrir os arquivos `.html` diretamente no navegador. A interatividade e o design são totalmente funcionais sem a necessidade de um servidor.
 
-  * **Para a disciplina de Web-Dev (Full-Stack):**
-    Para que as funcionalidades de integração funcionem, é necessário rodar o front-end com um servidor local, como a extensão **Live Server** do VS Code. Isso permite que a página faça requisições.
+  * **Para a disciplina de Web-Dev :**
+    Todos os requisitos estão sendo atentidos, para que as funcionalidades de integração funcionem é necessário rodar o front-end com um servidor local, como a extensão **Live Server** do VS Code. Isso permite que a página faça requisições.
 
   * **Para a Aplicação Completa (Front + Back):**
     Para usufruir de **todas as funcionalidades**, como o envio e o salvamento de dados, é **essencial** executar o **back-end (API FastAPI)** e o **front-end (com Live Server)** simultaneamente.
@@ -117,9 +117,9 @@ O terminal confirmará que o servidor está rodando em `http://localhost:8000`.
 Com o servidor rodando, você pode acessar os seguintes endereços para verificar seu funcionamento e ver a documentação das rotas:
 
   - **Documentação Interativa (Swagger UI):**
-      - [http://localhost:8000/docs](https://www.google.com/search?q=http://localhost:8000/docs)
+      - [http://localhost:8000/docs](http://localhost:8000/docs)
   - **Documentação Alternativa (ReDoc):**
-      - [http://localhost:8000/redoc](https://www.google.com/search?q=http://localhost:8000/redoc)
+      - [http://localhost:8000/redoc](http://localhost:8000/redoc)
 
 -----
 
