@@ -1,6 +1,5 @@
 const BACKEND_BASE_URL = 'http://localhost:8000'; 
 
-// Função genérica de request (apenas UMA vez)
 async function makeRequest(url, method = 'GET', body = null) {
   const options = {
     method,
@@ -37,19 +36,16 @@ export const userService = {
   }
 };
 
-
 // Serviços de Localização
 export const locationService = {
   async getSavedLocations(userId) {
     const url = `${BACKEND_BASE_URL}/getLocais/${userId}`;
     return makeRequest(url);
   },
-  
   async saveLocation(userId, address) {
     const url = `${BACKEND_BASE_URL}/addLocal/${userId}`;
     return makeRequest(url, 'PUT', { Local: address });
   },
-  
   async deleteLocation(userId, address) {
     const url = `${BACKEND_BASE_URL}/delLocal/${userId}`;
     return makeRequest(url, 'PUT', { Local: address });
@@ -110,7 +106,6 @@ export const riskService = {
   },
   
   async getWeatherForecast(lat, lon) {
-    // Sei que nao eh uma boa pratica hardcode, mas eh para ser possivel testar :)
     const API_KEY = '267eedca0b784f6a8d7112948243107';
     const url = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${lat},${lon}&days=7`;
     const response = await fetch(url);
