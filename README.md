@@ -1,51 +1,55 @@
 -----
 
-# GS-1 FullStack (API)
+# GS-1 FullStack (API e Front-end)
 
-Este README explica como clonar o repositório e executar a API desenvolvida em **FastAPI** para o projeto GS-1 FullStack.
+Este README explica como clonar o repositório e executar as partes de front-end e back-end (API em **FastAPI**) do projeto GS-1 FullStack.
+
+-----
+
+## 🚀 Visão Geral da Execução
+
+Este projeto foi estruturado para atender a diferentes disciplinas. Siga a instrução correspondente ao seu objetivo:
+
+  * **Para a disciplina de Front-End:**
+    Todos os requisitos são atendidos com a **página estática**. Basta abrir os arquivos `.html` diretamente no navegador. A interatividade e o design são totalmente funcionais sem a necessidade de um servidor.
+
+  * **Para a disciplina de Web-Dev (Full-Stack):**
+    Para que as funcionalidades de integração funcionem, é necessário rodar o front-end com um servidor local, como a extensão **Live Server** do VS Code. Isso permite que a página faça requisições.
+
+  * **Para a Aplicação Completa (Front + Back):**
+    Para usufruir de **todas as funcionalidades**, como o envio e o salvamento de dados, é **essencial** executar o **back-end (API FastAPI)** e o **front-end (com Live Server)** simultaneamente.
 
 -----
 
 ## Sumário
 
-1.  [Descrição do Projeto](https://www.google.com/search?q=%23descri%C3%A7%C3%A3o-do-projeto)
-2.  [Pré-requisitos](https://www.google.com/search?q=%23pr%C3%A9-requisitos)
-3.  [Como Rodar a API](https://www.google.com/search?q=%23como-rodar-a-api)
-      - [1. Clonar o Repositório](https://www.google.com/search?q=%231-clonar-o-reposit%C3%B3rio)
-      - [2. Criar o Ambiente Virtual (venv)](https://www.google.com/search?q=%232-criar-o-ambiente-virtual-venv)
-      - [3. Instalar as Dependências](https://www.google.com/search?q=%233-instalar-as-depend%C3%AAncias)
-      - [4. Rodar o Servidor FastAPI](https://www.google.com/search?q=%234-rodar-o-servidor-fastapi)
-4.  [Verificando a API](https://www.google.com/search?q=%23verificando-a-api)
-5.  [CORS (Cross-Origin Resource Sharing)](https://www.google.com/search?q=%23cors-cross-origin-resource-sharing)
+1.  [Como Rodar a Aplicação](https://www.google.com/search?q=%23como-rodar-a-aplica%C3%A7%C3%A3o)
+      - [Rodando o Front-end (Live Server)](https://www.google.com/search?q=%23rodando-o-front-end-live-server)
+      - [Rodando o Back-end (API FastAPI)](https://www.google.com/search?q=%23rodando-o-back-end-api-fastapi)
+2.  [Pré-requisitos do Back-end](https://www.google.com/search?q=%23pr%C3%A9-requisitos-do-back-end)
+3.  [Verificando a API](https://www.google.com/search?q=%23verificando-a-api)
+4.  [CORS (Cross-Origin Resource Sharing)](https://www.google.com/search?q=%23cors-cross-origin-resource-sharing)
 
 -----
 
-## Descrição do Projeto
+## Como Rodar a Aplicação
 
-O **GS-1 FullStack (API)** é o núcleo de backend de um sistema que utiliza **FastAPI**. Ele fornece endpoints RESTful projetados para serem consumidos tanto pelo frontend (desenvolvido com HTML/CSS/JS) quanto por outras aplicações externas.
+### Rodando o Front-end (Live Server)
 
------
+1.  **Instale a extensão `Live Server`** no Visual Studio Code.
+2.  Abra a pasta do projeto (`GS-1-FullStack`) no VS Code.
+3.  Navegue até a pasta `Front-end`.
+4.  Clique com o botão direito no arquivo `index.html` e selecione **"Open with Live Server"**.
 
-## Pré-requisitos
+Isso iniciará um servidor local (geralmente em `http://127.0.0.1:5500`) e abrirá a página no seu navegador.
 
-Antes de começar, certifique-se de ter instalado em sua máquina:
+### Rodando o Back-end (API FastAPI)
 
-  - **Git**
-  - **Python 3.8+** (com `pip` disponível no seu PATH)
+Siga os passos abaixo para configurar e executar o servidor da API.
 
-Ferramentas opcionais para testes:
+#### 1\. Clonar o Repositório
 
-  - **cURL** ou **Postman**
-
------
-
-## Como Rodar a API
-
-Siga os passos abaixo para configurar e executar o servidor da API em seu ambiente local.
-
-### 1\. Clonar o Repositório
-
-Abra seu terminal (Git Bash, PowerShell, Terminal do Linux/macOS) e execute os seguintes comandos:
+Se ainda não o fez, abra seu terminal e execute:
 
 ```bash
 # Clone o repositório do GitHub
@@ -55,38 +59,31 @@ git clone https://github.com/MGC-Corp/GS-1-FullStack.git
 cd "GS-1-FullStack/Back"
 ```
 
-O comando `git clone` baixa o conteúdo do repositório, e o `cd` o posiciona no diretório correto para iniciar a configuração da API.
+#### 2\. Criar o Ambiente Virtual (venv)
 
-### 2\. Criar o Ambiente Virtual (venv)
-
-É uma boa prática usar um ambiente virtual para isolar as dependências do projeto.
+É uma boa prática usar um ambiente virtual para isolar as dependências.
 
   * **Linux/macOS**
-
     ```bash
     python3 -m venv venv
     source venv/bin/activate
     ```
-
-  * **Windows (PowerShell)**
-
+  * **Windows (PowerShell/CMD)**
     ```powershell
+    # PowerShell
     python -m venv venv
     .\venv\Scripts\Activate.ps1
-    ```
 
-  * **Windows (CMD)**
-
-    ```bat
+    # CMD
     python -m venv venv
     venv\Scripts\activate.bat
     ```
 
-Após a ativação, você verá `(venv)` no início da linha do seu terminal, indicando que o ambiente virtual está ativo.
+Após a ativação, você verá `(venv)` no início da linha do seu terminal.
 
-### 3\. Instalar as Dependências
+#### 3\. Instalar as Dependências
 
-Com o ambiente virtual ativado, instale todas as bibliotecas necessárias listadas no arquivo `requirements.txt`.
+Com o ambiente virtual ativo, instale as bibliotecas necessárias:
 
 ```bash
 # Garanta que o pip está atualizado
@@ -96,7 +93,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 4\. Rodar o Servidor FastAPI
+#### 4\. Rodar o Servidor FastAPI
 
 Finalmente, inicie o servidor de desenvolvimento Uvicorn:
 
@@ -104,41 +101,28 @@ Finalmente, inicie o servidor de desenvolvimento Uvicorn:
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-  - `main:app`: Indica que o Uvicorn deve procurar no arquivo `main.py` a instância da aplicação chamada `app`.
-  - `--reload`: Ativa a recarga automática do servidor sempre que uma alteração no código for salva.
-  - `--host 0.0.0.0 --port 8000`: Expõe a API na porta `8000`, tornando-a acessível em `http://localhost:8000`.
+O terminal confirmará que o servidor está rodando em `http://localhost:8000`.
 
-Você verá uma saída no terminal confirmando que o servidor está em execução:
+-----
 
-```
-INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-INFO:     Started reloader process [XXXXX]
-INFO:     Waiting for application startup.
-INFO:     Application startup complete.
-```
+## Pré-requisitos do Back-end
+
+  - **Git**
+  - **Python 3.8+** (com `pip` disponível no PATH)
 
 -----
 
 ## Verificando a API
 
-Com o servidor rodando, você pode verificar se tudo está funcionando corretamente. Abra seu navegador ou use uma ferramenta como o Postman para acessar os seguintes endereços:
-
-  - **Endpoint Raiz:**
-
-      - [http://localhost:8000/](https://www.google.com/search?q=http://localhost:8000/)
+Com o servidor rodando, você pode acessar os seguintes endereços para verificar seu funcionamento e ver a documentação das rotas:
 
   - **Documentação Interativa (Swagger UI):**
-
       - [http://localhost:8000/docs](https://www.google.com/search?q=http://localhost:8000/docs)
-
   - **Documentação Alternativa (ReDoc):**
-
       - [http://localhost:8000/redoc](https://www.google.com/search?q=http://localhost:8000/redoc)
-
-Se você consegue ver as rotas na documentação e testá-las com sucesso, a API está configurada corretamente.
 
 -----
 
 ## CORS (Cross-Origin Resource Sharing)
 
-Esta API vem pré-configurada com um middleware CORS para permitir requisições de qualquer origem (`allow_origins=["*"]`), o que é útil para o desenvolvimento local quando o frontend está rodando em uma porta diferente. Para ambientes de produção, é recomendado restringir a lista de origens permitidas.
+Esta API vem pré-configurada para permitir requisições de qualquer origem (`*`), facilitando a comunicação com o front-end rodando via Live Server. Em produção, é recomendado restringir essa configuração para domínios específicos.
